@@ -6,116 +6,213 @@ def lambda_handler(event, context):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AWS Quiz App</title>
+<title>Glow Beauty</title>
 
 <style>
-body{
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
     font-family:Arial,sans-serif;
-    background:linear-gradient(135deg,#667eea,#764ba2);
-    padding:30px;
 }
 
-.container{
-    max-width:800px;
-    margin:auto;
+body{
+    background:#fff;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
     background:white;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
 
-h1{
-    text-align:center;
-    color:#764ba2;
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#ff4f81;
 }
 
-.question{
-    margin-top:25px;
+.hero{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:70px 8%;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fbc2eb);
+    flex-wrap:wrap;
 }
 
-button{
-    margin-top:25px;
-    padding:12px 25px;
-    border:none;
-    background:#764ba2;
+.hero-text{
+    width:50%;
     color:white;
-    border-radius:8px;
-    cursor:pointer;
 }
 
-#result{
+.hero-text h1{
+    font-size:58px;
+    margin-bottom:15px;
+}
+
+.hero-text p{
+    font-size:18px;
+    line-height:1.6;
+}
+
+.btn{
+    display:inline-block;
     margin-top:25px;
-    font-size:22px;
+    padding:14px 28px;
+    background:white;
+    color:#ff4f81;
+    text-decoration:none;
+    border-radius:30px;
     font-weight:bold;
 }
+
+.hero-image{
+    width:40%;
+}
+
+.hero-image img{
+    width:100%;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+.products{
+    padding:60px 8%;
+    text-align:center;
+}
+
+.products h2{
+    margin-bottom:40px;
+    color:#ff4f81;
+}
+
+.cards{
+    display:flex;
+    gap:25px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.card{
+    width:260px;
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card h3{
+    padding-top:15px;
+}
+
+.card p{
+    padding:10px;
+}
+
+.price{
+    color:#ff4f81;
+    font-weight:bold;
+    padding-bottom:15px;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:#ff4f81;
+    color:white;
+}
+
+@media(max-width:768px){
+
+.hero{
+    flex-direction:column;
+    text-align:center;
+}
+
+.hero-text{
+    width:100%;
+}
+
+.hero-image{
+    width:100%;
+    margin-top:30px;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<nav>
+<div class="logo">Glow Beauty</div>
+</nav>
 
-<h1>AWS Cloud Quiz</h1>
+<section class="hero">
 
-<div class="question">
-<p><b>1. What does AWS stand for?</b></p>
-<input type="radio" name="q1" value="1"> Amazon Web Services<br>
-<input type="radio" name="q1" value="0"> Advanced Web System<br>
-<input type="radio" name="q1" value="0"> Application Web Server
+<div class="hero-text">
+<h1>Glow Naturally ✨</h1>
+
+<p>
+Premium skincare and cosmetic products designed
+to keep your skin healthy, radiant and beautiful.
+</p>
+
+<a href="#" class="btn">Explore Products</a>
 </div>
 
-<div class="question">
-<p><b>2. Which AWS service is serverless?</b></p>
-<input type="radio" name="q2" value="0"> EC2<br>
-<input type="radio" name="q2" value="1"> Lambda<br>
-<input type="radio" name="q2" value="0"> RDS
+<div class="hero-image">
+<img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=80">
 </div>
 
-<div class="question">
-<p><b>3. Which service is used for object storage?</b></p>
-<input type="radio" name="q3" value="1"> S3<br>
-<input type="radio" name="q3" value="0"> Lambda<br>
-<input type="radio" name="q3" value="0"> CloudWatch
+</section>
+
+<section class="products">
+
+<h2>Featured Products</h2>
+
+<div class="cards">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=80">
+<h3>Vitamin C Serum</h3>
+<p>Brightens and refreshes your skin.</p>
+<div class="price">₹799</div>
 </div>
 
-<div class="question">
-<p><b>4. Which database is NoSQL?</b></p>
-<input type="radio" name="q4" value="1"> DynamoDB<br>
-<input type="radio" name="q4" value="0"> RDS MySQL<br>
-<input type="radio" name="q4" value="0"> PostgreSQL
+<div class="card">
+<img src="https://images.unsplash.com/photo-1619451334792-150fd785ee74?auto=format&fit=crop&w=800&q=80">
+<h3>Hydrating Cream</h3>
+<p>Deep moisturization for every skin type.</p>
+<div class="price">₹999</div>
 </div>
 
-<div class="question">
-<p><b>5. Which service launches virtual servers?</b></p>
-<input type="radio" name="q5" value="1"> EC2<br>
-<input type="radio" name="q5" value="0"> S3<br>
-<input type="radio" name="q5" value="0"> Lambda
+<div class="card">
+<img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&q=80">
+<h3>Sunscreen SPF 50</h3>
+<p>Daily UV protection and skin care.</p>
+<div class="price">₹699</div>
 </div>
-
-<button onclick="checkQuiz()">Submit Quiz</button>
-
-<div id="result"></div>
 
 </div>
 
-<script>
-function checkQuiz(){
+</section>
 
-let score = 0;
-
-for(let i=1;i<=5;i++){
-
-let ans = document.querySelector('input[name="q'+i+'"]:checked');
-
-if(ans){
-score += parseInt(ans.value);
-}
-}
-
-document.getElementById("result").innerHTML =
-"Your Score: " + score + " / 5";
-}
-</script>
+<footer>
+© 2026 Glow Beauty | Premium Cosmetics
+</footer>
 
 </body>
 </html>
